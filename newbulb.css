@@ -1,0 +1,89 @@
+:root {
+  --bg: #000000;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  margin: 0;
+}
+
+.scene {
+  position: relative;
+  width: 150px;
+  height: 300px;
+}
+
+.bulb {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  background: #d4f4a3;
+  border: 4px solid #222;
+  border-radius: 50% 50% 40% 40%;
+  margin: 0 auto;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.cap {
+  position: absolute;
+  bottom: -20px;
+  width: 40px;
+  height: 30px;
+  background: #bbb;
+  border: 3px solid #222;
+  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glow {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255,255,180,0.5), transparent 70%);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+/* Cord */
+.cord {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  width: 3px;
+  height: 60px;
+  background: #333;
+  transform: translateX(-50%);
+  cursor: grab;
+}
+
+.knob {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: #222;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+/* When turned ON */
+.bulb.on {
+  background: #ffffa0;
+  box-shadow: 0 0 30px 15px rgba(255, 255, 150, 0.5);
+}
+
+.bulb.on .glow {
+  opacity: 1;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pull Bulb</title>
+  <link rel="stylesheet" href="newbulb.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="bulb" id="bulb">
+      <div class="glow"></div>
+      <div class="cap"></div>
+      <div class="cord" id="cord">
+        <div class="knob"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const bulb = document.getElementById("bulb");
+    const cord = document.getElementById("cord");
+    let isDragging = false;
+    let startY = 0;
+
+    cord.addEventListener("mousedown", e => {
+      isDragging = true;
+      startY = e.clientY;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    document.addEventListener("mousemove", e => {
+      if (isDragging) {
+        const delta = e.clientY - startY;
+        if (delta > 30) {
+          bulb.classList.toggle("on");
+          isDragging = false;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
